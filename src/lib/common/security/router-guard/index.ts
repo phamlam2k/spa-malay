@@ -1,3 +1,4 @@
+import { ROUTES_NAME } from '@/src/lib/config/routes'
 import { parseCookie } from '../../cookies'
 
 export const unRoutes = ['/api', '/_next', 'favicon']
@@ -6,7 +7,7 @@ const rolePaths = ['/']
 export const isPath = (pathname: string) => {
   const relativeWith = (...others: string[]) => others.some(each => isChildPath(pathname, each))
   const isEmpty = () => ['', '/', null, undefined].includes(pathname)
-  const isPrivatePath = () => !relativeWith(...publicPath)
+  const isPrivatePath = () => !relativeWith(...publicPath) && pathname !== ROUTES_NAME.HOME
   return {
     isEmpty,
     relativeWith,
@@ -29,22 +30,26 @@ export const checkAccessByRole = (pathName: string) => {
   return rolePaths.some(r => pathName.includes(r))
 }
 
-export const publicPath = ['/auth/login', '/auth/register', '/404', '/500', '/401']
+export const publicPath = [
+  ROUTES_NAME.LOGIN,
+  ROUTES_NAME.REGISTER,
+  ROUTES_NAME._404,
+  ROUTES_NAME._500,
+  ROUTES_NAME._401
+]
 
 export const navigateCheck = ({ pathname, cookie }: { pathname: string; cookie: string | any }) => {
   const cookieObject = parseCookie(cookie) as any
 
-  const isLoggedIn = cookieObject.logged_in === 'true'
+  const isLoggedIn = cookieObject.logged_in === 'true' && !!cookieObject.crfToken
 
   if (isLoggedIn) {
-    pathname = '/'
-  } else if (pathname === '/' && !isLoggedIn) {
-    pathname = '/auth/login'
+    pathname = ROUTES_NAME.HOME
   }
 
   if (!isLoggedIn) {
     if (isPath(pathname).isPrivatePath()) {
-      pathname = `/auth/login`
+      pathname = ROUTES_NAME.LOGIN
     }
 
     return pathname

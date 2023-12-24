@@ -1,4 +1,11 @@
 import { QueryClient } from '@tanstack/react-query'
+import clsx, { ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
+/** Merge classes with tailwind-merge with clsx full feature */
+function clsxm(...classes: ClassValue[]) {
+  return twMerge(clsx(...classes))
+}
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -10,4 +17,4 @@ const queryClient = new QueryClient({
   }
 })
 
-export { queryClient }
+export { queryClient, clsxm }
