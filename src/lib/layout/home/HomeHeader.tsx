@@ -1,12 +1,13 @@
 import Link from 'next/link'
-import { getUserInfo } from '@/src/modules/home/controllers/getUserInfo'
-import { ROUTES_NAME } from '../../config/routes'
-
+import dynamic from 'next/dynamic'
 const topNavItems = [{ name: 'FormGPT', path: '/collect_form' }]
 
-const HomeHeader = () => {
-  const data = getUserInfo()
+const UserInfo = dynamic(() => import('./UserInfo'), {
+  ssr: false,
+  loading: () => <div className='w-[100px] h-[40px] bg-white ml-3'></div>
+})
 
+const HomeHeader = () => {
   return (
     <header className='bg-[#222236] text-white'>
       <div className='max-w-screen-xl mx-auto flex justify-between items-center p-4'>
@@ -18,7 +19,7 @@ const HomeHeader = () => {
             </Link>
           ))}
         </div>
-        <div className='ml-3'>{data ? <span>Lam</span> : <Link href={ROUTES_NAME.LOGIN}>Login</Link>}</div>
+        <UserInfo />
       </div>
     </header>
   )

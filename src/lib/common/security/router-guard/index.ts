@@ -1,5 +1,5 @@
 import { ROUTES_NAME } from '@/src/lib/config/routes'
-import { parseCookie } from '../../cookies'
+import { COOKIE_KEY, parseCookie } from '../../cookies'
 
 export const unRoutes = ['/api', '/_next', 'favicon']
 const rolePaths = ['/']
@@ -41,7 +41,7 @@ export const publicPath = [
 export const navigateCheck = ({ pathname, cookie }: { pathname: string; cookie: string | any }) => {
   const cookieObject = parseCookie(cookie) as any
 
-  const isLoggedIn = cookieObject.logged_in === 'true' && !!cookieObject.crfToken
+  const isLoggedIn = cookieObject.logged_in === 'true' && !!localStorage.getItem(COOKIE_KEY.csrfToken)
 
   if (isLoggedIn) {
     pathname = ROUTES_NAME.HOME

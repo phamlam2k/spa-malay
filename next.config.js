@@ -4,6 +4,9 @@ const nextConfig = {
   swcMinify: true,
 
   styledComponents: true,
+  experimental: {
+    optimizeCss: true // enabling this will enable SSR for Tailwind
+  },
 
   // SVGR
   webpack(config) {
