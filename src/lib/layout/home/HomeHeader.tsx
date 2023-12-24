@@ -18,7 +18,7 @@ const HomeHeader = () => {
             </Link>
           ))}
         </div>
-        <div>{data ? <span>Lam</span> : <Link href={ROUTES_NAME.LOGIN}>Login</Link>}</div>
+        <div className='ml-3'>{data ? <span>Lam</span> : <Link href={ROUTES_NAME.LOGIN}>Login</Link>}</div>
       </div>
     </header>
   )

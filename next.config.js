@@ -3,6 +3,8 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
 
+  styledComponents: true,
+
   // SVGR
   webpack(config) {
     // Grab the existing rule that handles SVG imports

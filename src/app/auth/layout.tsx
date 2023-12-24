@@ -9,8 +9,10 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <body className={inter.className}>
         <Providers>
-          <AuthHeader />
-          {children}
+          <div className='bg-blue-400 min-w-screen min-h-screen'>
+            <AuthHeader />
+            {children}
+          </div>
         </Providers>
       </body>
     </html>

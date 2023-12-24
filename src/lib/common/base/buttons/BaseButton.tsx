@@ -1,6 +1,5 @@
 import * as React from 'react'
-
-import clsxm from '@/lib/clsxm'
+import { clsxm } from '../../config'
 
 const ButtonVariant = ['primary', 'outline', 'ghost', 'light', 'dark'] as const
 const ButtonSize = ['sm', 'base'] as const

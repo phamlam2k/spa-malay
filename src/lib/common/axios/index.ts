@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { logout } from 'src/@core/utils/api/auth'
 import { API_BASE_URL } from '../../config/endpointApi'
 
 const axiosInstance = axios.create({
@@ -30,7 +29,6 @@ axiosInstance.interceptors.response.use(
   error => {
     if (error.response) {
       if (error.response.status === 401 && !error?.response?.headers['service-name']) {
-        logout(false)
       } else if (error.response.status === 500) {
       } else if (error.response.status === 404) {
         // window.location.href = '/404'

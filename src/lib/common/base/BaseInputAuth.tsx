@@ -2,13 +2,13 @@
 
 import React, { useState } from 'react'
 
-import { InputProps } from '@/src/types/auth'
-
 import EmailIcon from '~/svg/email.svg'
 import PasswordIcon from '~/svg/password.svg'
 import PersonIcon from '~/svg/person.svg'
 import ShowPassIcon from '~/svg/visibility.svg'
 import HidePassIcon from '~/svg/visibility_off.svg'
+
+import { InputProps } from '@/src/types/auth'
 
 const BaseInputAuth = ({ label, register, errors, type, name, value, onChange, disabled }: InputProps) => {
   const [showPass, setShowPass] = useState<boolean>(false)
