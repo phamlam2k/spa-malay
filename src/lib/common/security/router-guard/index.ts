@@ -1,5 +1,6 @@
 import { ROUTES_NAME } from '@/src/lib/config/routes'
 import { COOKIE_KEY, parseCookie } from '../../cookies'
+import { cookies } from 'next/headers'
 
 export const unRoutes = ['/api', '/_next', 'favicon']
 const rolePaths = ['/']
@@ -38,10 +39,10 @@ export const publicPath = [
   ROUTES_NAME._401
 ]
 
-export const navigateCheck = ({ pathname, cookie }: { pathname: string; cookie: string | any }) => {
-  const cookieObject = parseCookie(cookie) as any
+export const navigateCheck = ({ pathname }: { pathname: string }) => {
+  const loggedInCookies = cookies().get(COOKIE_KEY.logged_in)
 
-  const isLoggedIn = cookieObject.logged_in === 'true' && !!localStorage.getItem(COOKIE_KEY.csrfToken)
+  const isLoggedIn = loggedInCookies && loggedInCookies.value === 'true' && cookies().has(COOKIE_KEY.csrfToken)
 
   if (isLoggedIn) {
     pathname = ROUTES_NAME.HOME

@@ -7,8 +7,7 @@ export function middleware(req: NextRequest) {
   const pathName = getPagePathName(req)
 
   if (pathName && !unRoutes.some(route => pathName.includes(route))) {
-    const cookie = req.cookies
-    const redirect = navigateCheck({ pathname: pathName, cookie })
+    const redirect = navigateCheck({ pathname: pathName })
 
     if (pathName !== redirect) {
       return NextResponse.redirect(new URL(redirect, process.env.APP_FE).toString(), 307)
