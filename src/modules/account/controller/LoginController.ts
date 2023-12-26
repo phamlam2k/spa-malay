@@ -9,9 +9,16 @@ import { loginApi } from '@/src/lib/data/auth'
 
 import { LoginPayload } from '@/src/types/auth'
 import { useSnackbarWithContext } from '@/src/lib/common/snackbar'
+import { useRouter } from 'next/navigation'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { loginValidationSchema } from '@/src/lib/validations/authValidation'
 
 const useLoginController = () => {
-  const form = useForm<LoginPayload>()
+  const form = useForm<LoginPayload>({
+    resolver: yupResolver(loginValidationSchema)
+  })
+
+  const router = useRouter()
   const snackbar = useSnackbarWithContext()
 
   const loginMutate = useMutation({
@@ -19,7 +26,7 @@ const useLoginController = () => {
     onSuccess: (data: any) => {
       snackbar.success(data.data.message)
       setSessionCookie(data.data.metadata.accessToken)
-      window.location.href = ROUTES_NAME.HOME
+      router.push(ROUTES_NAME.HOME)
     },
     onError: data => {
       console.log(data)

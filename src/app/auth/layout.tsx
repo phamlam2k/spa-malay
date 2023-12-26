@@ -1,13 +1,12 @@
 import AuthHeader from '@/src/lib/layout/auth/AuthHeader'
-import Providers from '@/src/modules/providers'
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Providers>
-      <main className='bg-blue-400 min-h-screen'>
-        <AuthHeader />
+    <main className='bg-blue-400 min-h-screen'>
+      <AuthHeader />
+      <div className='bg-white container lg:w-[600px] p-4 rounded-md absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]'>
         {children}
-      </main>
-    </Providers>
+      </div>
+    </main>
   )
 }
