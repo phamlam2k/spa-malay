@@ -11,7 +11,7 @@ const ImgWithFallback = ({ src, fallback, type = 'image/webp', style = {}, alt, 
   return (
     <picture style={style} className={classNameCustom}>
       <source srcSet={src} type={type} />
-      <img src={fallback} {...rest} alt={alt} importance="high" />
+      <img src={fallback} {...rest} alt={alt} />
     </picture>
   )
 }
