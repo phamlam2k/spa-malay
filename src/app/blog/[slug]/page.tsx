@@ -18,12 +18,24 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
   if (blog) {
     return {
       title: blog.title,
-      description: blog.description
+      description: blog.description,
+      openGraph: {
+        title: 'Spa Malay',
+        description: 'Help you to relax and feel better',
+        type: 'website',
+        images: ['https://raw.githubusercontent.com/phamlam2k/spa-malay/main/public/images/spa_intro.webp']
+      }
     }
   } else {
     return {
-      title: 'Underfined',
-      description: 'Underfined'
+      title: 'Spa Malay',
+      description: 'Spa Malay',
+      openGraph: {
+        title: 'Spa Malay',
+        description: 'Help you to relax and feel better',
+        type: 'website',
+        images: ['https://raw.githubusercontent.com/phamlam2k/spa-malay/main/public/images/spa_intro.webp']
+      }
     }
   }
 }

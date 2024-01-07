@@ -8,7 +8,14 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['api.slingacademy.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.slingacademy.com',
+        pathname: '/public/sample-blog-posts/',
+        port: ''
+      }
+    ]
   },
 
   // SVGR
