@@ -11,7 +11,7 @@ export const getBlogPosts = async () => {
 }
 
 export const getBlogDetail = async (id: string) => {
-  const res = await fetch(`${API_BLOGS}/${id}`)
+  const res = (await fetch(`${API_BLOGS}/${id}`)) as any
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')

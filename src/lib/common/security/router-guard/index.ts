@@ -38,7 +38,10 @@ export const publicPath = [
   ROUTES_NAME._500,
   ROUTES_NAME._401,
   ROUTES_NAME.IMAGE,
-  ROUTES_NAME.BLOG
+  ROUTES_NAME.BLOG,
+  ROUTES_NAME.ROBOTS,
+  ROUTES_NAME.SITEMAP,
+  ROUTES_NAME.MANIFEST
 ]
 
 export const navigateCheck = ({ pathname }: { pathname: string }) => {

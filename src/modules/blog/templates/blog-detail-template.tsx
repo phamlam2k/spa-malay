@@ -1,7 +1,13 @@
+import { ROUTES_NAME } from '@/src/lib/config/routes'
 import { getBlogDetail } from '@/src/lib/data/blog'
+import { redirect } from 'next/navigation'
 
 const BlogDetailTemplate = async ({ id }: { id: string }) => {
   const { blog } = await getBlogDetail(id)
+
+  if (!blog) {
+    return redirect(ROUTES_NAME.HOME)
+  }
 
   return (
     <div>

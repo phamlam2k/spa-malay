@@ -11,5 +11,10 @@ export enum ROUTES_NAME {
   _500 = '/500',
 
   IMAGE = '/images',
-  BLOG = '/blog'
+  BLOG = '/blog',
+
+  // SEO Routes
+  ROBOTS = '/robots.txt',
+  SITEMAP = '/sitemap.xml',
+  MANIFEST = '/manifest.json'
 }

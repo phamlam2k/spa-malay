@@ -1,11 +1,12 @@
 'use client'
 
+import { convertSlugUrl } from '@/src/lib/utils/functions'
 import { useRouter } from 'next/navigation'
 
 const BlogItem = ({ item }: { item: any }) => {
   const router = useRouter()
   const onClick = (id: string) => {
-    router.push(`/blog/${id}`)
+    router.push(`/blog/${convertSlugUrl(item.title)}-${id}.html`)
   }
 
   return (
