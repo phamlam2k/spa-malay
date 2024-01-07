@@ -36,7 +36,8 @@ export const publicPath = [
   ROUTES_NAME.REGISTER,
   ROUTES_NAME._404,
   ROUTES_NAME._500,
-  ROUTES_NAME._401
+  ROUTES_NAME._401,
+  ROUTES_NAME.IMAGE
 ]
 
 export const navigateCheck = ({ pathname }: { pathname: string }) => {

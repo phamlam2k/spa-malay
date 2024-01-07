@@ -9,9 +9,9 @@ const UserInfo = dynamic(() => import('./UserInfo'), {
 
 const HomeHeader = () => {
   return (
-    <header className='bg-[#222236] text-white'>
+    <header className='bg-[#22223649] text-white fixed w-full'>
       <div className='max-w-screen-xl mx-auto flex justify-between items-center p-4'>
-        <h1 className='text-3xl font-bold'>LifesupGPT</h1>
+        <h1 className='text-3xl font-bold'>SpaMalay</h1>
         <div className='flex items-center space-x-4 ml-auto'>
           {topNavItems.map(item => (
             <Link key={item.name} href={item.path} className='hover:text-gray-300'>

@@ -8,5 +8,7 @@ export enum ROUTES_NAME {
   // Not Found Routes
   _404 = '/404',
   _401 = '/401',
-  _500 = '/500'
+  _500 = '/500',
+
+  IMAGE = '/images'
 }
