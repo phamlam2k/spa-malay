@@ -1,12 +1,19 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+
 const BlogItem = ({ item }: { item: any }) => {
-  const onClick = () => {
-    console.log('click')
+  const router = useRouter()
+  const onClick = (id: string) => {
+    router.push(`/blog/${id}`)
   }
 
   return (
-    <div className='bg-white rounded-lg shadow-lg p-5 md:p-20 mx-2 my-20' key={item.useId} onClick={onClick}>
+    <div
+      className='bg-white rounded-lg shadow-lg p-5 md:p-20 mx-2 my-20'
+      key={item.useId}
+      onClick={() => onClick(item.id)}
+    >
       <div className='flex flex-col md:flex-row justify-center items-center'>
         <div className='md:w-1/2'>
           <div className='max-w-md'>

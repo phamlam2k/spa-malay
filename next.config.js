@@ -7,6 +7,10 @@ const nextConfig = {
     optimizeCss: true // enabling this will enable SSR for Tailwind
   },
 
+  images: {
+    domains: ['api.slingacademy.com']
+  },
+
   // SVGR
   webpack(config) {
     // Grab the existing rule that handles SVG imports

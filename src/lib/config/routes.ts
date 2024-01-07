@@ -10,5 +10,6 @@ export enum ROUTES_NAME {
   _401 = '/401',
   _500 = '/500',
 
-  IMAGE = '/images'
+  IMAGE = '/images',
+  BLOG = '/blog'
 }
